@@ -107,3 +107,5 @@ strsplit(b,"/")	# ¿¡·¯
 plot(b)
 
 
+
+
