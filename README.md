@@ -1,5 +1,6 @@
 # StuddyR
 R 학습 리포지토리
+![R](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/1280px-R_logo.svg.png)
 
 ### 1일차
 - R 설치
