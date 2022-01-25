@@ -106,3 +106,5 @@ tmp=split(mtcars, mtcars$cyl)
 str(tmp)
 tmp[[1]] # cyl 4의 데이터셋
 split(tmp[[1]],tmp[[1]]$am) # am단위 로 나누기
+
+# test

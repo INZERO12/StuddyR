@@ -142,4 +142,4 @@ plot(yearData$월, yearData$관람객수, main=title)
 # ----15,16번,18,19번 반복  (2020년도 자료)
 index=3 ;  yearData=year[[index]]; title=year[[index]][1,1] 
 plot(yearData$월, yearData$관람객수, main=title)
-# test
+
