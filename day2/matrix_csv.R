@@ -374,13 +374,46 @@ naniar::gg_miss_var(df)		# 결측치 시각화2
 library(VIM); VIM::aggr(df)		# 결측치 시각화3
 
 
-# install.packages('Amelia')
-# library(Amelia)
+install.packages('Amelia')
+library(Amelia)
 missmap(df)				# 결측치 시각화4(가장기본)
 
 savePlot("무인카메라결측치4",type="png")	# plot창을 "무인카메라결측치" 이름으로 png파일로 저장
 
+# 결측치 제거
+df = na.omit(df)
+missmap(df)
+str(df)
+
+####### 시도명 그래프
+tableDf=data.frame(table(df[,2]))
+names(tableDf)[1]='title'
+plot(tableDf)
+
+
+tableDf=data.frame(table(df[,4]))
+names(tableDf)[1]='title'
+tableDf$pro=tableDf$Freq/sum(tableDf$Freq)*100
+tableDf
+
+#######################################################
+### 그룹별 적용
+### apply() : 2차원 데이터를 행, 열 방향으로 연산
+### 적용방향 = 1:같은 행별, 2:같은 열별, c(1,2): 원소별
+#######################################################
+#### 원소별 적용
+#### sapply() : 벡터에 함수를 반복 적용(벡터로 출력)
+#####################################################
+####그룹별 연산 
+####tapply() : 그룹별 연산
+#########################################################3
 
 
 
+##### 시도별 도로노선방향의 평균
+tmp = split(df$도로노선방향,df$시도명)
+tmp[[1]]	# 01(경기도) 자료
+head(tmp)	# 01(경기도) 자료라는것 확인
+data.frame(sapply(tmp,mean))	# 평균으로 묶어달라
 
+tapply(df$도로노선방향,df$시도명,mean) # 테이블 구조
