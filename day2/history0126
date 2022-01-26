@@ -1,0 +1,512 @@
+summary(채용수)
+summary(평균급여)
+summary(직업만족도)
+# summary(숫자형
+plot(평균급여)  # 산점도
+fa=as.factor(직업명)
+fa
+# [1] 데이터과학자 엔지니어     엔지니어     세금관리자   분석관리자  
+# Levels: 데이터과학자 분석관리자 세금관리자 엔지니어
+# Levels => 중복 x
+직업명
+summary(fa)
+# > summary(fa)
+# 데이터과학자   분석관리자   세금관리자     엔지니어 
+           1            1            1            2 
+plot(fa)
+data=data.frame(직업명,채용수,평균급여,직업만족도)
+data
+#        직업명 채용수 평균급여 직업만족도
+# 1 데이터과학자  4.184      110        4.4
+# 2     엔지니어  2.725      110        4.0
+# 3     엔지니어  2.599      106        4.3
+# 4   세금관리자  3.317      110        4.0
+# 5   분석관리자  1.958      112        4.1
+str(data)
+#'data.frame':   5 obs. of  4 variables:
+# $ 직업명    : chr  "데이터과학자" "엔지니어" "엔지니어" "세금관리자" ...
+# $ 채용수    : num  4.18 2.73 2.6 3.32 1.96
+# $ 평균급여  : num  110 110 106 110 112
+# $ 직업만족도: num  4.4 4 4.3 4 4.1
+plot(data)
+data$직업명# data안에 들어가는 직업명
+# [1] "데이터과학자" "엔지니어"     "엔지니어"     "세금관리자"   "분석관리자"  
+# strsplit(변수, 글자를 나눌 기준)
+a='python/r/cobol/r'
+strsplit(a,"/")
+# [1] "python" "r"      "cobol"  "r" 
+plot(a) # 에러
+a='python/r/cobol/r'
+tmp = strsplit(a,"/")
+tmp
+tmp[[1]][2]
+a=c('파이썬, 데이터분석가,인공지능','R,데이터분석가,빅데이터')
+tmp = strsplit(a,",")
+tmp[[2]]
+a=c('파이썬, 데이터분석가,인공지능','R,데이터분석가,빅데이터')
+tmp = strsplit(a,",")
+tmp
+summary(tmp)
+summary(unlist(tmp))# 데이터 다 풀기
+a=c('파이썬, 데이터분석가,인공지능','R,데이터분석가,빅데이터')
+tmp = strsplit(a,",")
+tmp
+summary(tmp)
+tmp1=unlist(tmp)
+tmp2=as.factor(tmp1)
+summary(tmp2)
+plot(tmp2)
+# factor로 만든 자료는 summary, plot은 되지만, split 안됨
+a=c('파이썬-20, 데이터분석가-20,인공지능','R,데이터분석가,빅데이터')
+tmp = strsplit(a,",")
+tmp
+summary(tmp)
+tmp1=unlist(tmp)
+tmp1
+tmp2=as.factor(tmp1)
+summary(tmp2)
+plot(tmp2)
+strsplit(tmp2,'-') # factor는 strsplit안됨
+strsplit(as.character(tmp),'-') # character로 바꿔서 strsplit 해야함
+# factor형은 strsplit안됨
+b=as.factor(a)
+strsplit(b,"/")# 에러
+plot(b)
+q()
+iris[,cc(1:4)]
+iris[,-5]
+iris[,c(1:4)]
+iris[,-5]
+ncol(iris)
+p1=c('강아지','산책','강아지','목욕','강아지','놀')
+p2=c('친구','밥','먹음','저녁','집','먹음')
+p1+p2=c('강아지','산책','강아지','목욕','강아지','놀','친구','밥','먹음','저녁','집','먹음')
+table(c)
+table(c$"강아지")
+p1=c('강아지','산책','강아지','목욕','강아지','놀')
+p2=c('친구','밥','먹음','저녁','집','먹음')
+p1+p2=c('강아지','산책','강아지','목욕','강아지','놀','친구','밥','먹음','저녁','집','먹음')
+table(c$"강아지")
+p1=c('강아지','산책','강아지','목욕','강아지','놀')
+p2=c('친구','밥','먹음','저녁','집','먹음')
+p1+p2=c('강아지','산책','강아지','목욕','강아지','놀','친구','밥','먹음','저녁','집','먹음')
+table(p1+p2)
+p1=c('강아지','산책','강아지','목욕','강아지','놀')
+p2=c('친구','밥','먹음','저녁','집','먹음')
+p1+p2=c('강아지','산책','강아지','목욕','강아지','놀','친구','밥','먹음','저녁','집','먹음')
+a = p1+p2
+table(a)
+p1=c('강아지','산책','강아지','목욕','강아지','놀')
+p2=c('친구','밥','먹음','저녁','집','먹음')
+a=c('강아지','산책','강아지','목욕','강아지','놀','친구','밥','먹음','저녁','집','먹음')
+table(a)
+p1=c('강아지','산책','강아지','목욕','강아지','놀')
+p2=c('친구','밥','먹음','저녁','집','먹음')
+p3=c('강아지','산책','강아지','목욕','강아지','놀','친구','밥','먹음','저녁','집','먹음')
+table(p3)
+z = matrix(p3,nrow=4,ncol=10)
+t(z)
+z = matrix(table(p3),nrow=4,ncol=10)
+z
+t(z)
+z = matrix(table(p3),nrow=4,ncol=10)
+z
+names(z)=c('강아지','놀','먹음','목욕','밥','산책','저녁','집','친구')
+z
+z = matrix(table(p3),nrow=4,ncol=10)
+p1=c('강아지','산책','강아지','목욕','강아지','놀')
+p2=c('친구','밥','먹음','저녁','집','먹음')
+p3=c('강아지','산책','강아지','목욕','강아지','놀','친구','밥','먹음','저녁','집','먹음')
+table(p3)
+z = matrix(table(p3),nrow=4,ncol=10)
+z
+rownames(z)
+rownames(z) = ("강아지","놀","먹음","목욕","밥","산책","저녁","집","친구)
+rownames(z) = c("강아지","놀","먹음","목욕","밥","산책","저녁","집","친구)
+z
+rownames(z) = c("강아지","놀","먹음","목욕","밥","산책","저녁","집","친구")
+z
+rownames(z) = c("","강아지","놀","먹음","목욕","밥","산책","저녁","집","친구")
+z
+rownames(z) = c(" ","강아지","놀","먹음","목욕","밥","산책","저녁","집","친구")
+z
+rownames(z) = c("강아지","놀","먹음","목욕","밥","산책","저녁","집","친구")
+z
+rownames(z) = c("강아지","놀","먹음","목욕","밥","산책","저녁","집","친구")
+colnames(z) = c("p1","p2","p3")
+z
+p1=c('강아지','산책','강아지','목욕','강아지','놀')
+p2=c('친구','밥','먹음','저녁','집','먹음')
+p3=c('강아지','산책','강아지','목욕','강아지','놀','친구','밥','먹음','저녁','집','먹음')
+table(p3)
+# 강아지     놀   먹음   목욕     밥   산책   저녁     집   친구 
+#     3      1      2      1      1      1      1      1      1 
+# => 강아지 먹음 => 연관성분석 필요(그룹핑)
+# 매트릭스 작업(가로세로 데이터셋으로 만들어 내야한다)
+z = matrix(table(p3),nrow=4,ncol=9)
+z
+p1=c('강아지','산책','강아지','목욕','강아지','놀')
+p2=c('친구','밥','먹음','저녁','집','먹음')
+p3=c('강아지','산책','강아지','목욕','강아지','놀','친구','밥','먹음','저녁','집','먹음')
+table(p3)
+# 강아지     놀   먹음   목욕     밥   산책   저녁     집   친구 
+#     3      1      2      1      1      1      1      1      1 
+# => 강아지 먹음 => 연관성분석 필요(그룹핑)
+# 매트릭스 작업(가로세로 데이터셋으로 만들어 내야한다)
+z = matrix(table(p3),nrow=3,ncol=9)
+z
+rownames(z) = c("강아지","놀","먹음","목욕","밥","산책","저녁","집","친구")
+colnames(z) = c("p1","p2","p3")
+z
+p1=c('강아지','산책','강아지','목욕','강아지','놀')
+p2=c('친구','밥','먹음','저녁','집','먹음')
+p3=c('강아지','산책','강아지','목욕','강아지','놀','친구','밥','먹음','저녁','집','먹음')
+table(p3)
+# 강아지     놀   먹음   목욕     밥   산책   저녁     집   친구 
+#     3      1      2      1      1      1      1      1      1 
+# => 강아지 먹음 => 연관성분석 필요(그룹핑)
+# 매트릭스 작업(가로세로 데이터셋으로 만들어 내야한다)
+z = matrix(table(p3),nrow=3,ncol=9)
+z
+rownames(z) = c("강아지","놀","먹음","목욕","밥","산책","저녁","집","친구")
+colnames(z) = c("p1","p2","p3")
+z
+dir()
+getwd()
+setwd("C:\Sources\StuddyR\day2")
+setwd("C:/Sources/StuddyR/day2")
+dir() # 현재 작업 디렉토리 가져오기
+setwd("C:/Sources/StuddyR/day2")
+dir() # 현재 작업 디렉토리 가져오기
+fileName ="전국무인교통단속카메라표준데이터.csv"
+df=read.csv(fileName)
+head(df)
+str(df)
+table(df$시도명)
+barplot(table(df$시도명))
+a = subset(df, 시도명 = '01')
+a
+head(a)
+a = subset(df, 시도명 == '01')
+head(a)
+str(a)
+summary(a)
+summary(a$시군구명)
+summary(factor(a)$시군구명)
+summary(a$시군구명)
+summary(factor(a$시군구명))
+table(tmp$시군구명)
+unique(a$시군구명)
+a = subset(df, 시도명 == '03')
+head(a)
+str(a)
+## 시군구명이 과연 '서초구'만 있는가
+summary(factor(a$시군구명))
+table(tmp$시군구명)
+unique(a$시군구명)
+a = subset(df, 시도명 == '10')
+head(a)
+str(a)
+## 시군구명이 과연 '강원도 양구군'만 있는가
+summary(factor(a$시군구명))
+table(tmp$시군구명)
+unique(a$시군구명)
+a = subset(df, 시도명 == '9')
+head(a)
+str(a)
+## 시군구명이 과연 '경기도 가평군'만 있는가
+summary(factor(a$시군구명))
+table(tmp$시군구명)
+unique(a$시군구명)
+setwd("C:/Sources/StuddyR/day2")
+dir() # 현재 작업 디렉토리 가져오기
+fileName ="전국무인교통단속카메라표준데이터.csv"
+df=read.csv(fileName)
+head(df)
+str(df)
+df$시도명 = factor(df$시도명)
+df$시군구명 = factor(df$시군구명)
+df[,3]=factor(df[,3])
+str(df)
+df$시도명 = factor(df$시도명)
+df$시군구명 = factor(df$시군구명)
+df[,3]=factor(df[,3])# 윗줄과 같다 /  위치값으로 부를때 빠름
+df[,4]=factor(df[,4])
+df[,6]=factor(df[,6])
+str(df)
+summary(df)
+levels(df[,2])
+df$설치연도Factor = factor(설치연도)
+df$설치연도Factor = factor(df$설치연도)
+summary(df)
+str(df)
+df[,25]=factor(df$제한속도)
+str(df)
+summary(df)
+plot(df[,24])
+table(df[,25])
+str(df)
+ma=df$제한속도
+dim(ma)
+ncol(ma)
+nrow(ma)
+length(ma)
+mean(ma)
+ma=df$[,c(10,11)]
+ma=df[,c(10,11)]
+head(ma)
+colsums(ma)
+colSums(ma)
+rowSums(ma)
+names(df)[1]='카메라Num'
+names(df)[25]='제한속도factor'
+names(df)
+paste(c("c","k"))
+paste(("c","k"),sep)
+paste(("c","k"),sep='')
+paste("c","k",sep='')
+paste()("c","k")
+paste0("c","k")
+nemes(df)[1]=paste(names(df)[1],'bu',seo='')
+nemes(df)[1]=paste(names(df)[1],'bu',sep='')
+names(df)[1]=paste(names(df)[1],'bu',sep='')
+str(df)
+names(df)# 번호 빨리알 수있는 변수
+names(df)# 번호 빨리알 수있는 변수
+df1=df[,c(2,3,4,7,11,13,14,16,)]
+df1
+str(df1)
+df1=df[,c(2,3,4,7,11,13,14,16)]
+str(df1)
+df2=df[c(10,11,13,14)]
+str(df2)
+str(df1)
+unique(df$단속구분)
+subset(df1, 단속구분 == 1)
+head(subset(df1, 단속구분 == 1))
+str(df1)
+head(subset(df1, 단속구분 == '1'))
+head(subset(df1, 단속구분 == 50))
+subset(df1, 제한속도 == 50)
+head(subset(df1, 단속구분 == 50))
+subset(df1, 제한속도 == 50)
+subset(df1, 단속구분 == '1')
+head(subset(df1, 단속구분 == '1'))
+head(subset(df1, 제한속도 == 50))
+subset(df1, 단속구분 == '1')
+subset(df1, 제한속도 == 50)
+str(df1)
+head(subset(df1, 단속구분 == '1'))
+head(subset(df1, 제한속도 == 50))
+head(subset(df1, 단속구분 1= '1'))
+subset(df1, 단속구분 != '1')
+subset(df1, 단속구분 != '1')
+head(subset(df1, 단속구분 1= '1'))
+head(subset(df1, 단속구분 1!= '1'))
+head(subset(df1, 단속구분 != '1'))
+subset(df1, 단속구분 == '1') and subset(df1, 시군구명 == '경기도')
+subset(df1, 단속구분 == '1') & subset(df1, 시군구명 == '경기도')
+subset(df1, 단속구분 == '1') And subset(df1, 시군구명 == '경기도')
+str(df1)
+subset(df1, 시군구명 == '경기도')
+subset(df1, 단속구분 == '1') And subset(df1, 시도명 == '경기도')
+subset(df1, 시도명 == '경기도')
+table(df1$시군구명)
+subset(df1, 단속구분 == '1') And subset(df1, 시도명 == '경기도')
+unique(df1$시도명)
+subset(df1,시도명=='부산광역시')
+unique(부산$시군구명)
+부산=subset(df1,시도명=='부산광역시')
+부산=subset(df1,시도명=='부산광역시')
+unique(df1$시도명)
+부산=subset(df1,시도명=='부산광역시')
+unique(부산$시군구명)
+subset(df1, 단속구분 == '1') & subset(df1, 시도명 == '경기도')
+unique(df1$시도명)
+sido[1]
+sido=unique(df1$시도명)
+sido[1]
+sido=unique(df1$시도명)
+sido
+index=1
+tmp=subset(df1,시도명==sido[index])
+tmp
+select = '경기도'
+tmp = subset(df1,시도명==select)
+help(write)
+help(write.csv)
+head(tmp)
+fileName = paste(sido[index],'.csv',sep='')
+write.csv(tmp,fileName)
+index=2
+tmp=subset(df1,시도명==sido[index])
+fileName = paste(sido[index],'.csv',sep='')
+write.csv(tmp,fileName)
+index=3
+tmp=subset(df1,시도명==sido[index])
+fileName = paste(sido[index],'.csv',sep='')
+write.csv(tmp,fileName)
+sido==unique(df1$시군구명)
+cnt=length(sido)
+for(index in 1:cnt){
+tmp=subset(df1,시군구명==sido[index])
+fileName = paste('C:/Sources/StuddyR/day2/저장',sido[index],'.csv',sep='')
+write.csv(tmp,fileName)
+}
+sido==unique(df1$시군구명)
+sido==unique(df1$시군구명)
+sido==unique(df1$시군구명)
+sido
+sido==unique(df1$시군구명)
+sido==unique(df1$시도명)
+cnt=length(sido)
+for(index in 1:cnt){
+tmp=subset(df1,시도명==sido[index])
+fileName = paste('C:/Sources/StuddyR/day2/저장',sido[index],'.csv',sep='')
+write.csv(tmp,fileName)
+}
+sido==unique(df1$시도명)
+cnt=length(sido)
+for(index in 1:cnt){
+tmp=subset(df1,시도명==sido[index])
+fileName = paste('C:/Sources/StuddyR/day2/저장/',sido[index],'.csv',sep='')
+write.csv(tmp,fileName)
+}
+dir.create(paste0("C:/Sources/StuddyR/day2/저장/",'new'))
+for(index in 1:cnt){
+names(df1)
+names(df1)
+colbunho=2
+folderName = paste('C:/Sources/StuddyR/day2/저장/',names(df)[colbunho],sep='')
+dir.creat(folderName)
+findCol = tmp[1]#
+findCol
+tmp = names(df1) #tmp는 임시변수
+findCol = tmp[1]#findCol이라는 필드명
+findCol
+폴더명 = paste('C:/Sources/StuddyR/day2/저장/',.findCol,sep='')
+dir.creat(폴더명
+)
+tmp = names(df1) #tmp는 임시변수
+findCol = tmp[1]#findCol이라는 필드명
+findCol
+폴더명 = paste('C:/Sources/StuddyR/day2/저장/',.findCol,sep='')
+dir.create(폴더명)
+dir.create(paste0("C:/Sources/StuddyR/day2/저장/",'new'))
+tmp = names(df1) #tmp는 임시변수
+findCol = tmp[1]#findCol이라는 필드명
+findCol
+폴더명 = paste('C:/Sources/StuddyR/day2/저장/',findCol,sep='')
+dir.create(폴더명)
+tmp = unique(df$findCol)
+tmp = unique(df$[,1])
+tmp = unique(df[,1])
+tmp = unique(df1[,1])
+head(unique(df1[,1]))
+index = 1
+tmp = unique(df1[,index])
+head(unique(df1[,1]))
+str(df1)
+tmp=names(df1)
+length(tmp)
+rm(list=Is()[1])
+rm(list=Is())
+rm(list=Is())
+Is()
+rm(list = ls())
+ls()
+dir()
+df=read.csv(dir()[3])
+df=read.csv(dir()[3])
+setwd("C:/Sources/StuddyR/day2")
+dir() # 현재 작업 디렉토리 가져오기
+fileName ="전국무인교통단속카메라표준데이터.csv"
+df=read.csv(fileName)
+head(df)
+fileName ="전국무인교통단속카메라표준데이터.csv"
+df=read.csv(fileName,stringsAsFactors=TRUE)
+head(df)
+df1[1:9]
+str(df1[1:9])
+df1[9]
+df[1:9]
+df1=df[,c(1:9])]
+df1=df[,c(1:9])]
+df1=df[,c(1:9)]
+write.csv(df1,'작업자료.csv')
+rm(list = ls())
+ls()
+df=read.csv(fileName,stringsAsFactors=TRUE)
+setwd("C:/Sources/StuddyR/day2")
+dir() # 현재 작업 디렉토리 가져오기
+fileName ="전국무인교통단속카메라표준데이터.csv"
+df=read.csv(fileName,stringsAsFactors=TRUE)
+rm(list = ls())
+setwd("C:/Sources/StuddyR/day2")
+dir() # 현재 작업 디렉토리 가져오기
+df=read.csv('작업자료.csv',stringsAsFactors=TRUE)
+summary(df)
+setwd("C:/Sources/StuddyR/day2")
+dir() # 현재 작업 디렉토리 가져오기
+df=read.csv('작업자료.csv',stringsAsFactors=TRUE)
+df=df[,-1]
+str(df)
+summary(df)[1]
+summary(df[,1])
+summary(df[,2])
+summary(df)[1]; class(names(df[2]))
+summary(data.frame(df[,2]))
+data.frame(summary(df[,2]))
+data.frame(빈도수=summary(df[,2]))
+names(df)[1]; class(names(df[2])) ### 또는 str(names(df[2]))
+summary(df[,2])
+data.frame(빈도수=summary(df[,2]))
+sum(is.na(df[,1]))
+sum(is.na(df[,1]))
+sum(is.na(df[,2]))
+sum(is.na(df[,3]))
+sum(is.na(df[,4]))
+sum(is.na(df))
+colName=names(df)
+cnt=length(colName)
+colName=names(df)
+cnt=length(colName)
+for (i in 1:cnt){
+ print(colName[i])
+ print(sum(is.na(df[,i])))
+}
+install.packages('naniar')
+library(naniar)
+naniar::miss_case_summary(df)
+naniar::miss_var_summary(df)
+naniar::vis_miss(df)
+naniar::gg_miss_var(df)
+ naniar::gg_miss_var(df, show_pct = TRUE)
+naniar::gg_miss_upset(df)
+install.packages('VIM')
+library(VIM)
+naniar::gg_miss_upset(df)
+library(VIM); VIM::aggr(df)
+install.packages('Amelia')
+library(Amelia)
+missmap(df)
+help(plotsave)
+help(plot.save)
+help(saveplot)
+savePlot("무인카메라결측치",type="png")
+savePlot("무인카메라결측치4",type="png")# plot창을 "무인카메라결측치" 이름으로 png파일로 저장
+naniar::miss_case_summary(df) # case : 행 기준
+naniar::miss_var_summary(df)# variable : 변수 기준
+naniar::vis_miss(df)# 결측치 시각화1
+naniar::miss_case_summary(df) # case : 행 기준
+library(naniar)# 라이브러리 불러오기
+naniar::miss_case_summary(df) # case : 행 기준
+naniar::miss_var_summary(df)# variable : 변수 기준
+naniar::miss_case_summary(df) # case : 행 기준
+naniar::miss_var_summary(df)# variable : 변수 기준
+naniar::vis_miss(df)# 결측치 시각화1
+savePlot("무인카메라결측치1",type="png")# plot창을 "무인카메라결측치" 이름으로 png파일로 저장
+naniar::gg_miss_var(df)# 결측치 시각화2
+savePlot("무인카메라결측치2",type="png")# plot창을 "무인카메라결측치" 이름으로 png파일로 저장
+library(VIM); VIM::aggr(df)# 결측치 시각화3
+savePlot("무인카메라결측치3",type="png")# plot창을 "무인카메라결측치" 이름으로 png파일로 저장
