@@ -35,7 +35,7 @@ dcast(sex2, SEX ~ month,value.var='QTY',sum)
 
 
 # F나 M 대신 female, male이라고 표시하기 위해서 변환 함수를
-만들어서 적용하여 gender라는 열을 추가한다.
+#만들어서 적용하여 gender라는 열을 추가한다.
 changeGender <- function(x) 
 { if (x[2] == 'M') { return('male') } 
 else 
